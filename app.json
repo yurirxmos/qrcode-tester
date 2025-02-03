@@ -24,18 +24,8 @@
             "package": "com.yurirxmos.qrcodetester"
         },
         "web": {
-            "favicon": "./assets/favicon.png"
+            "favicon": "./assets/icon.png"
         },
-        "plugins": [
-            [
-                "expo-camera",
-                {
-                    "cameraPermission": "Allow to access your camera",
-                    "microphonePermission": "Allow to access your microphone",
-                    "recordAudioAndroid": true
-                }
-            ]
-        ],
         "extra": {
             "eas": {
                 "projectId": "f18582ef-8eb5-44d3-bf01-0276dae64091"
@@ -46,6 +36,9 @@
             "policy": "appVersion"
         },
         "updates": {
+            "enabled": true,
+            "fallbackToCacheTimeout": 0,
+            "checkAutomatically": "ON_LOAD",
             "url": "https://u.expo.dev/f18582ef-8eb5-44d3-bf01-0276dae64091"
         }
     }
