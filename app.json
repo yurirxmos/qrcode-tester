@@ -22,6 +22,8 @@
       },
       "permissions": [
         "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
         "android.permission.RECORD_AUDIO"
       ],
       "package": "com.yurirxmos.qrcodetester"
@@ -44,6 +46,12 @@
         "projectId": "f18582ef-8eb5-44d3-bf01-0276dae64091"
       }
     },
-    "owner": "yurirxmos"
+    "owner": "yurirxmos",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f18582ef-8eb5-44d3-bf01-0276dae64091"
+    }
   }
 }
