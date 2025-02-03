@@ -10,7 +10,7 @@
         "splash": {
             "image": "./assets/splash-icon.png",
             "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
+            "backgroundColor": "black"
         },
         "ios": {
             "supportsTablet": true
@@ -20,7 +20,7 @@
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
             },
-            "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"],
+            "permissions": ["CAMERA", "RECORD_AUDIO"],
             "package": "com.yurirxmos.qrcodetester"
         },
         "web": {
@@ -30,8 +30,8 @@
             [
                 "expo-camera",
                 {
-                    "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
-                    "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+                    "cameraPermission": "Allow to access your camera",
+                    "microphonePermission": "Allow to access your microphone",
                     "recordAudioAndroid": true
                 }
             ]

@@ -4,7 +4,7 @@ import { CameraView, Camera } from "expo-camera";
 import { SwitchCamera } from "lucide-react-native";
 
 export default function App() {
-    const [hasPermission, setHasPermission] = useState(null);
+    const [hasPermission, setHasPermission] = useState<boolean | null>(null);
     const [facing, setFacing] = useState("back");
     const [scannedData, setScannedData] = useState(""); // ✅ Estado para armazenar o QR Code lido
 
@@ -17,8 +17,13 @@ export default function App() {
         getCameraPermissions();
     }, []);
 
-    const handleBarcodeScanned = ({ type, data }) => {
+    const handleBarcodeScanned = ({ data }: { data: string }) => {
         setScannedData(data); // ⚡ Atualiza o estado com o valor lido
+    };
+
+    const requestPermissionAgain = async () => {
+        const { status } = await Camera.requestCameraPermissionsAsync();
+        setHasPermission(status === "granted");
     };
 
     function handleFacing() {
@@ -28,20 +33,30 @@ export default function App() {
     return (
         <View style={styles.container}>
             {/* 📸 COMPONENTE DA CÂMERA */}
-            <CameraView
-                onBarcodeScanned={handleBarcodeScanned}
-                barcodeScannerSettings={{
-                    barcodeTypes: ["qr", "pdf417"], // ⚡ Seleciona o tipo de leitura pra QRCODE
-                }}
-                facing={facing}
-                style={StyleSheet.absoluteFillObject}
-            />
-
+            {hasPermission === null ? (
+                <Text style={styles.textMessage}>...</Text>
+            ) : hasPermission === false ? (
+                <View style={styles.permissionContainer}>
+                    <Text style={styles.textMessage}>Permissão para usar a câmera foi negada.</Text>
+                    <TouchableOpacity activeOpacity={0.8} style={styles.button} onPress={requestPermissionAgain}>
+                        <Text style={styles.buttonText}>PERMITIR CÂMERA</Text>
+                    </TouchableOpacity>
+                </View>
+            ) : (
+                <CameraView
+                    onBarcodeScanned={handleBarcodeScanned}
+                    barcodeScannerSettings={{
+                        barcodeTypes: ["qr", "pdf417"], // ⚡ Seleciona o tipo de leitura pra QRCODE
+                    }}
+                    facing={facing}
+                    style={StyleSheet.absoluteFillObject}
+                />
+            )}
             <View style={styles.bottomBar}>
                 {/* BOTÃO DE INVERTER CÂMERA */}
                 <TouchableOpacity activeOpacity={0.8} style={styles.button} onPress={handleFacing}>
                     <SwitchCamera size={20} color={"white"} />
-                    <Text style={styles.buttonText}>INVERTER CÂMERA</Text>
+                    <Text style={styles.buttonText}>INVERTER</Text>
                 </TouchableOpacity>
 
                 {/* CAMPO DE MOSTRAR RESULTADO DA LEITURA */}
@@ -50,6 +65,7 @@ export default function App() {
                     value={scannedData}
                     editable={false} // 🚫 Impede o usuário de editar o input
                     placeholder="Aguardando leitura..."
+                    placeholderTextColor={"white"}
                 />
             </View>
         </View>
@@ -100,5 +116,15 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 30,
         paddingVertical: 10,
+    },
+    textMessage: {
+        color: "white",
+        alignSelf: "center",
+        fontSize: 100,
+    },
+    permissionContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
     },
 });

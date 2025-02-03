@@ -12,6 +12,7 @@
       "distribution": "internal"
     },
     "production": {
+      "developmentClient": true,
       "android": {
         "image": "latest",
         "buildType": "apk"
