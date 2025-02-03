@@ -1,0 +1,29 @@
+{
+  "name": "qrcode-tester",
+  "license": "0BSD",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-native-picker/picker": "^2.11.0",
+    "expo": "~52.0.28",
+    "expo-barcode-scanner": "^13.0.1",
+    "expo-camera": "^16.0.14",
+    "expo-status-bar": "~2.0.1",
+    "lucide-react-native": "^0.474.0",
+    "react": "18.3.1",
+    "react-native": "0.76.6",
+    "react-native-picker": "^4.3.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~18.3.12",
+    "typescript": "^5.3.3"
+  },
+  "private": true
+}
