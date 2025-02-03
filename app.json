@@ -1,57 +1,52 @@
 {
-  "expo": {
-    "name": "qrcode-tester",
-    "slug": "qrcode-tester",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "permissions": [
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
-      ],
-      "package": "com.yurirxmos.qrcodetester"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
-          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
-          "recordAudioAndroid": true
+    "expo": {
+        "name": "qrcode-tester",
+        "slug": "qrcode-tester",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "light",
+        "newArchEnabled": true,
+        "splash": {
+            "image": "./assets/splash-icon.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"],
+            "package": "com.yurirxmos.qrcodetester"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "plugins": [
+            [
+                "expo-camera",
+                {
+                    "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+                    "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+                    "recordAudioAndroid": true
+                }
+            ]
+        ],
+        "extra": {
+            "eas": {
+                "projectId": "f18582ef-8eb5-44d3-bf01-0276dae64091"
+            }
+        },
+        "owner": "yurirxmos",
+        "runtimeVersion": {
+            "policy": "appVersion"
+        },
+        "updates": {
+            "url": "https://u.expo.dev/f18582ef-8eb5-44d3-bf01-0276dae64091"
         }
-      ]
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "f18582ef-8eb5-44d3-bf01-0276dae64091"
-      }
-    },
-    "owner": "yurirxmos",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/f18582ef-8eb5-44d3-bf01-0276dae64091"
     }
-  }
 }

@@ -21,20 +21,13 @@ export default function App() {
         setScannedData(data); // ⚡ Atualiza o estado com o valor lido
     };
 
-    if (hasPermission === null) {
-        return <Text>Requisitando permissão de acesso à câmera</Text>;
-    }
-    if (hasPermission === false) {
-        return <Text>Sem acesso à câmera</Text>;
-    }
-
     function handleFacing() {
         setFacing((current) => (current === "back" ? "front" : "back")); // ⚡ Atualiza o estado com o câmera frontal ou traseira.
     }
 
     return (
         <View style={styles.container}>
-            {/* COMPONENTE DA CÂMERA */}
+            {/* 📸 COMPONENTE DA CÂMERA */}
             <CameraView
                 onBarcodeScanned={handleBarcodeScanned}
                 barcodeScannerSettings={{
@@ -47,7 +40,8 @@ export default function App() {
             <View style={styles.bottomBar}>
                 {/* BOTÃO DE INVERTER CÂMERA */}
                 <TouchableOpacity activeOpacity={0.8} style={styles.button} onPress={handleFacing}>
-                    <SwitchCamera size={20} color={"white"} />s<Text style={styles.buttonText}>INVERTER CÂMERA</Text>
+                    <SwitchCamera size={20} color={"white"} />
+                    <Text style={styles.buttonText}>INVERTER CÂMERA</Text>
                 </TouchableOpacity>
 
                 {/* CAMPO DE MOSTRAR RESULTADO DA LEITURA */}
@@ -62,7 +56,10 @@ export default function App() {
     );
 }
 
-{/* ✨ ESTILOS ✨ */}
+{
+    /* ✨ ESTILOS ✨ */
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
